@@ -1,0 +1,24 @@
+{
+  "name": "redux-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "classnames": "^2.2.3",
+    "css-loader": "^0.23.1",
+    "immutable": "^3.7.6",
+    "node-sass": "^3.4.2",
+    "postcss-color-rebeccapurple": "^2.0.0",
+    "postcss-loader": "^0.8.2",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1"
+  }
+}

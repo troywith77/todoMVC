@@ -6,6 +6,7 @@ export default class TodoInput extends Component {
     super(props)
     this.handleKeyDown = this.handleKeyDown.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleBlur = this.handleBlur.bind(this)
 
     this.state = {
       text: this.props.text || ''
@@ -13,20 +14,25 @@ export default class TodoInput extends Component {
   }
 
   handleChange(e) {
-    const value = e.target.value
     this.setState({
-      text: value
+      text: e.target.value
     })
   }
 
   handleKeyDown(e) {
-    const value = e.target.value
     const { onSave } = this.props
     if(e.keyCode === 13) {
-      onSave(value)
+      onSave(e.target.value)
       this.setState({
         text: ''
       })
+    }
+  }
+
+  handleBlur(e) {
+    const { onSave } = this.props
+    if(!this.props.newTodo) {
+      onSave(e.target.value)
     }
   }
 
@@ -39,6 +45,7 @@ export default class TodoInput extends Component {
       value={this.state.text}
       onChange={this.handleChange}
       onKeyDown={this.handleKeyDown}
+      onBlur={this.handleBlur}
       placeholder={placeholder}
       autoFocus='true'
       />

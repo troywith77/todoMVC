@@ -8,6 +8,7 @@ const Footer = ({
 	actions
 }) => (
 	<div>
+		{'Filter: '}
 		<FilterLink
 		actions={actions}
 		VisibilityFilter={VisibilityFilter}
@@ -28,6 +29,11 @@ const Footer = ({
 		filter='COMPLETED'>
 			COMPLETED
 		</FilterLink>
+		<hr />
+		<FunctionalLink
+		onClick={() => actions.CLEAR_COMPLETED()}>
+			CLEAR COMPLETED
+		</FunctionalLink>
 	</div>
 )
 
@@ -51,6 +57,19 @@ const FilterLink = ({
 			</a>
 		)
 	}
+}
+
+const FunctionalLink = ({
+	children,
+	onClick
+}) => {
+	return (
+		<a
+		href='#'
+		onClick={onClick}>
+			{children}
+		</a>
+	)
 }
 
 export default Footer

@@ -19,6 +19,7 @@ class Header extends Component {
 			<header>
 				<h1 className={styles.title}>Todo MVC</h1>
 				<TodoInput
+				newTodo
 				onSave={this.onSaveTodo.bind(this)}
 				placeholder='What do you want to do?' />
 			</header>

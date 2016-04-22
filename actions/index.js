@@ -25,3 +25,17 @@ export const SET_VISIBILITY_FILTER = ( filter ) => {
 		filter
 	}
 }
+
+export const UPDATE_TODO = (id, text) => {
+	return {
+		type: 'UPDATE_TODO',
+		id,
+		text
+	}
+}
+
+export const CLEAR_COMPLETED = () => {
+	return {
+		type: 'CLEAR_COMPLETED'
+	}
+}

@@ -1,10 +1,19 @@
 .root {
   position: relative;
+  display: flex;
+  align-items: center;
   height: 40px;
   line-height: 40px;
+  margin-bottom: 3px;
   font-size: 20px;
   list-style: none;
   border: 1px solid #eee;
+}
+
+.toggle {
+  margin-right: 20px;
+  width: 15px;
+  height: 15px;
 }
 
 .delete {
@@ -12,4 +21,11 @@
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
+  transition: 0.5s;
+  font-family: sans-serif;
+}
+
+.delete:hover {
+  color: #d44;
 }

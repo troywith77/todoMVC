@@ -1,8 +1,15 @@
-const initialState = [{
+const initialState = [
+	{
 	id: 0,
-	text: 'ho',
+	text: 'React',
 	completed: false
-}]
+},
+	{
+		id: 1,
+		text: 'Face the truth',
+		completed: false
+	}
+]
 
 export const todos = ( state = initialState, action ) => {
 	switch( action.type ) {
@@ -26,6 +33,21 @@ export const todos = ( state = initialState, action ) => {
 						{ completed: !item.completed }
 					)
 				}
+			})
+		case 'UPDATE_TODO':
+			return state.map(todo => {
+				if(todo.id !== action.id) {
+					return todo
+				} else {
+					return Object.assign({},
+					todo, {
+						text: action.text
+					})
+				}
+			})
+		case 'CLEAR_COMPLETED':
+			return state.filter(todo => {
+				return !todo.completed
 			})
 		default:
 			return state

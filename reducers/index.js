@@ -49,6 +49,13 @@ export const todos = ( state = initialState, action ) => {
 			return state.filter(todo => {
 				return !todo.completed
 			})
+		case 'COMPLETE_ALL':
+			return state.map(todo => {
+				return Object.assign({},
+				todo, {
+					completed: true
+				})
+			})
 		default:
 			return state
 	}

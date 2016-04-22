@@ -42,7 +42,12 @@ const Footer = ({
 			<hr />
 			<FunctionalLink
 			onClick={() => actions.CLEAR_COMPLETED()}>
-				CLEAR COMPLETED
+				Clear Completed
+			</FunctionalLink>
+			<hr />
+			<FunctionalLink
+			onClick={() => actions.COMPLETE_ALL()}>
+				Complete All
 			</FunctionalLink>
 		</div>
 	)

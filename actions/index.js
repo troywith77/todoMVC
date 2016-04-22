@@ -39,3 +39,9 @@ export const CLEAR_COMPLETED = () => {
 		type: 'CLEAR_COMPLETED'
 	}
 }
+
+export const COMPLETE_ALL = () => {
+	return {
+		type: 'COMPLETE_ALL'
+	}
+}

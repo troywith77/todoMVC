@@ -23,6 +23,7 @@ const TodoApp = ({
 			VisibilityFilter={VisibilityFilter}
 		/>
 		<Footer
+		todos={todos}
 		actions={actions}
 		VisibilityFilter={VisibilityFilter} />
 	</div>

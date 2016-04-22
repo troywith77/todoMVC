@@ -5,37 +5,48 @@ import * as Actions from '../actions/index'
 
 const Footer = ({
 	VisibilityFilter,
-	actions
-}) => (
-	<div>
-		{'Filter: '}
-		<FilterLink
-		actions={actions}
-		VisibilityFilter={VisibilityFilter}
-		filter='ALL'>
-			ALL
-		</FilterLink>
-		{' '}
-		<FilterLink
-		actions={actions}
-		VisibilityFilter={VisibilityFilter}
-		filter='ACTIVE'>
-			ACTIVE
-		</FilterLink>
-		{' '}
-		<FilterLink
-		actions={actions}
-		VisibilityFilter={VisibilityFilter}
-		filter='COMPLETED'>
-			COMPLETED
-		</FilterLink>
-		<hr />
-		<FunctionalLink
-		onClick={() => actions.CLEAR_COMPLETED()}>
-			CLEAR COMPLETED
-		</FunctionalLink>
-	</div>
-)
+	actions,
+	todos
+}) => {
+	const leftCount = todos.reduce((t, n) =>
+		!n.completed ? t + 1 : t
+	, 0);
+	const word = leftCount === 1 ? ' item' : ' items';
+	return (
+		<div>
+			<p>
+			{leftCount + word + ' left'}
+			</p>
+			<hr />
+			{'Filter: '}
+			<FilterLink
+			actions={actions}
+			VisibilityFilter={VisibilityFilter}
+			filter='ALL'>
+				ALL
+			</FilterLink>
+			{' '}
+			<FilterLink
+			actions={actions}
+			VisibilityFilter={VisibilityFilter}
+			filter='ACTIVE'>
+				ACTIVE
+			</FilterLink>
+			{' '}
+			<FilterLink
+			actions={actions}
+			VisibilityFilter={VisibilityFilter}
+			filter='COMPLETED'>
+				COMPLETED
+			</FilterLink>
+			<hr />
+			<FunctionalLink
+			onClick={() => actions.CLEAR_COMPLETED()}>
+				CLEAR COMPLETED
+			</FunctionalLink>
+		</div>
+	)
+}
 
 const FilterLink = ({
 	children,
